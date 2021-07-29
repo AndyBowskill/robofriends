@@ -1,8 +1,9 @@
 import React from 'react';
 import Card from '../card/card.component'
+import './cardlist.style.css';
 
-const CardList = (props) => (
-    <div>
+const CardList = props => (
+    <div className='cardlist'>
         {props.robots.map(robot => (
             <Card key={robot.id} robot={robot}/>
         ))}

@@ -1,0 +1,15 @@
+.card-container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0,212,255,1);
+    border-radius: 25px;
+    padding: 25px;
+    cursor: pointer;
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .card-container:hover {
+    transform: rotate(15deg);
+  }

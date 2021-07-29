@@ -22,7 +22,12 @@ class App extends React.Component {
   render() {
     const {robots} = this.state;
 
-    return <CardList robots={robots} />;
+    return (
+      <div className='App'>
+        <h1>Robots</h1>
+        <CardList robots={robots} />;
+      </div>
+    )
   }
 }
 
