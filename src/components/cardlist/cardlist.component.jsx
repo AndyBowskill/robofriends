@@ -1,11 +1,11 @@
 import React from 'react';
 import Card from '../card/card.component'
 
-const CardList = () => (
+const CardList = (props) => (
     <div>
-        <Card />
-        <Card />
-        <Card />
+        {props.robots.map(robot => (
+            <Card key={robot.id} robot={robot}/>
+        ))}
     </div>
 );
 
