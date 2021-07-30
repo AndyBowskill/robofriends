@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
-import CardList from './components/cardlist/cardlist.component'
+import CardList from './components/cardlist/cardlist.component';
+import SearchBox from './components/searchbox/searchbox.component';
 
 class App extends React.Component {
 
@@ -8,9 +9,9 @@ class App extends React.Component {
     super();
 
     this.state = {
-      robots: []
+      robots: [],
+      searchField: ''
     }
-
   }
 
   componentDidMount() {
@@ -19,13 +20,20 @@ class App extends React.Component {
     .then(user => this.setState({robots:user}));
   }
 
-  render() {
-    const {robots} = this.state;
+  onSearchChange = (event) => {
+    this.setState({searchField: event.target.value});
+    console.log(event.target.value);
+  }
 
+  render() {
+    const filterRobots = this.state.robots.filter(robot => {
+      return robot.name.toLowerCase().includes(this.state.searchField.toLowerCase())
+    });
     return (
       <div className='App'>
         <h1>Robots</h1>
-        <CardList robots={robots} />;
+        <SearchBox onSearchChange={this.onSearchChange} />
+        <CardList robots={filterRobots} />
       </div>
     )
   }

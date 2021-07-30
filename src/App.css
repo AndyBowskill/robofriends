@@ -3,6 +3,7 @@
 }
 
 h1 {
+    margin: 0.5em;
     font-size: 4rem;
     color: rgba(0,212,255,1)
   }
